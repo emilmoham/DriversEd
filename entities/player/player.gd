@@ -1,0 +1,55 @@
+extends Area2D
+
+signal hit
+#signal fully_engulfed
+
+var wheel_base
+
+var speed_current
+var speed_max = 400
+var acceleration = 400
+
+var steer_angle_change_speed = PI/2
+var steer_angle_max = PI/6
+
+func _ready() -> void:
+	speed_current = 0
+	wheel_base = ($FrontWheelLeft.position - $BackWheelLeft.position).x
+	
+func _physics_process(delta: float) -> void:
+	adjust_steering(delta)
+	adjust_speed(delta)
+	
+	var front_wheel = position + wheel_base/2 * Vector2(cos(rotation), sin(rotation))
+	var back_wheel  = position - wheel_base/2 * Vector2(cos(rotation), sin(rotation))
+	
+	back_wheel += speed_current * delta * Vector2(cos(rotation), sin(rotation))
+	front_wheel += speed_current * delta * Vector2(cos(rotation + $FrontWheelLeft.rotation), sin(rotation + $FrontWheelLeft.rotation))
+	
+	position = (front_wheel + back_wheel) / 2
+	rotation = atan2(front_wheel.y - back_wheel.y, front_wheel.x - back_wheel.x)
+
+func adjust_steering(delta):
+	var turn = 0
+	if Input.is_action_pressed("steer_left"):
+		turn -= steer_angle_change_speed * delta
+	if Input.is_action_pressed("steer_right"):
+		turn += steer_angle_change_speed * delta
+	var tire_rotation = $FrontWheelRight.rotation + turn;
+	tire_rotation = clamp(tire_rotation, -steer_angle_max, steer_angle_max)
+	$FrontWheelLeft.rotation = tire_rotation
+	$FrontWheelRight.rotation = tire_rotation
+	
+func adjust_speed(delta):
+	var speed_change = 0
+	if Input.is_action_pressed("accelerate"):
+		speed_change += acceleration * delta
+	if Input.is_action_pressed("brake"):
+		speed_change -= acceleration * delta
+
+	speed_current += speed_change;
+	speed_current = clamp(speed_current, -speed_max, speed_max)
+
+
+func _on_body_entered(body: Node2D) -> void:
+	hit.emit()

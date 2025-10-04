@@ -1,0 +1,109 @@
+[gd_scene load_steps=8 format=3 uid="uid://bnqqulpyyy5dy"]
+
+[ext_resource type="Texture2D" uid="uid://dimy7t38e8mwy" path="res://stages/levels/01/01_background.webp" id="1_7q321"]
+[ext_resource type="Texture2D" uid="uid://2viwgyyatugg" path="res://entities/ui/HUD_background.webp" id="2_765rp"]
+[ext_resource type="PackedScene" uid="uid://urr8bagcauuh" path="res://entities/player/player.tscn" id="3_cdfs6"]
+[ext_resource type="PackedScene" uid="uid://b0ehc2lb0ucx7" path="res://entities/base_car/base_car.tscn" id="4_ii8ex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06t58"]
+size = Vector2(290, 361)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pfgcb"]
+size = Vector2(329, 719)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lsu70"]
+size = Vector2(266, 245)
+
+[node name="01" type="Node2D"]
+
+[node name="01Background" type="Sprite2D" parent="."]
+position = Vector2(593, 360)
+texture = ExtResource("1_7q321")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(120, 360)
+texture = ExtResource("2_765rp")
+
+[node name="Player" parent="." instance=ExtResource("3_cdfs6")]
+position = Vector2(467, 420)
+rotation = -3.1415927
+scale = Vector2(1.1, 1.1)
+
+[node name="Car" parent="." instance=ExtResource("4_ii8ex")]
+position = Vector2(960.00006, 310.00003)
+rotation = 0.0009999275
+scale = Vector2(1, 1)
+tint = Color(0.7372549, 0.7372549, 0.89411765, 1)
+
+[node name="Car2" parent="." instance=ExtResource("4_ii8ex")]
+position = Vector2(958.99994, 200.99997)
+rotation = 0.09811221
+scale = Vector2(1, 1)
+tint = Color(0.15686275, 0.21176471, 0.9882353, 1)
+
+[node name="Car3" parent="." instance=ExtResource("4_ii8ex")]
+position = Vector2(459.00003, 90)
+rotation = -3.1241393
+scale = Vector2(1, 1)
+tint = Color(0.972549, 0.23529412, 0.03529412, 1)
+
+[node name="Car4" parent="." instance=ExtResource("4_ii8ex")]
+position = Vector2(459, 311.00003)
+rotation = 3.1415923
+scale = Vector2(1, 1)
+tint = Color(0.14509805, 0.20392157, 0.9490196, 1)
+
+[node name="Car5" parent="." instance=ExtResource("4_ii8ex")]
+position = Vector2(472.00003, 523)
+rotation = 3.1415918
+scale = Vector2(1, 1)
+tint = Color(0.6, 0.6156863, 0.80784315, 1)
+
+[node name="Car6" parent="." instance=ExtResource("4_ii8ex")]
+position = Vector2(473.99997, 197.99997)
+rotation = 3.0466387
+scale = Vector2(1, 1)
+tint = Color(0.6627451, 0.6862745, 0.41960785, 1)
+
+[node name="Car7" parent="." instance=ExtResource("4_ii8ex")]
+position = Vector2(468.00003, 643)
+rotation = 3.0706687
+scale = Vector2(1, 1)
+tint = Color(0.83137256, 0.7764706, 0.6666667, 1)
+
+[node name="Car8" parent="." instance=ExtResource("4_ii8ex")]
+position = Vector2(956.00006, 642.00006)
+rotation = 3.1268933
+scale = Vector2(1, 1)
+tint = Color(0.9882353, 0.9098039, 0.14509805, 1)
+
+[node name="Car9" parent="." instance=ExtResource("4_ii8ex")]
+position = Vector2(951.0001, 84)
+scale = Vector2(1, 1)
+tint = Color(0.62352943, 0.6117647, 0.7764706, 1)
+
+[node name="Car10" parent="." instance=ExtResource("4_ii8ex")]
+position = Vector2(960.0001, 422)
+rotation = 0.06704685
+scale = Vector2(1, 1)
+tint = Color(1, 0.16862746, 0.011764706, 1)
+
+[node name="Car11" parent="." instance=ExtResource("4_ii8ex")]
+position = Vector2(958.0001, 531)
+scale = Vector2(1, 1)
+tint = Color(0.72156864, 0.75686276, 0.47058824, 1)
+
+[node name="DemeritZones" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DemeritZones"]
+position = Vector2(443, 182.5)
+shape = SubResource("RectangleShape2D_06t58")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DemeritZones"]
+position = Vector2(1012.5, 361.5)
+shape = SubResource("RectangleShape2D_pfgcb")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="DemeritZones"]
+position = Vector2(432, 597.5)
+shape = SubResource("RectangleShape2D_lsu70")

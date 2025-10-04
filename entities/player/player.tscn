@@ -1,0 +1,89 @@
+[gd_scene load_steps=4 format=3 uid="uid://urr8bagcauuh"]
+
+[ext_resource type="Script" uid="uid://cqsuje61b4wpt" path="res://entities/player/player.gd" id="1_cyojo"]
+[ext_resource type="Texture2D" uid="uid://bgvquiyx56ea8" path="res://entities/player/player_car.webp" id="2_1kbk7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kbk7"]
+size = Vector2(126, 62)
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_cyojo")
+
+[node name="FrontWheelLeft" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 28.0
+offset_top = -33.0
+offset_right = 47.999886
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(10, 5)
+size_flags_horizontal = 4
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="FrontWheelRight" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 28.0
+offset_top = 23.0
+offset_right = 47.99994
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(10, 5)
+size_flags_horizontal = 4
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BackWheelLeft" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -33.0
+offset_right = -33.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(10, 5)
+size_flags_horizontal = 4
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BackWheelRight" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = 23.0
+offset_right = -33.0
+offset_bottom = 32.999973
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(10, 5)
+size_flags_horizontal = 4
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4, -2.3841858e-07)
+scale = Vector2(0.5772726, 0.57727265)
+texture = ExtResource("2_1kbk7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_1kbk7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

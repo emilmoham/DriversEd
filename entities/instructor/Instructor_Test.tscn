@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://myndqgismvx8"]
+
+[ext_resource type="Texture2D" uid="uid://bigv2jc5qimoh" path="res://entities/instructor/instructor_2.webp" id="1_868lw"]
+[ext_resource type="Texture2D" uid="uid://bgt41gga5wgf3" path="res://entities/instructor/instructor_0.webp" id="2_aaiqu"]
+[ext_resource type="Texture2D" uid="uid://dw68kjnqrv6da" path="res://entities/instructor/instructor_1.webp" id="3_ftg6b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ndte"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_868lw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_aaiqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ftg6b")
+}],
+"loop": true,
+"name": &"Angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_aaiqu")
+}],
+"loop": true,
+"name": &"Calm",
+"speed": 5.0
+}]
+
+[node name="InstructorTest" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_7ndte")
+animation = &"Angry"
+frame = 2
+frame_progress = 0.36870915
