@@ -3,7 +3,7 @@ extends Area2D
 
 @export var tint = Color("#FFFFFF")
 
-const Explosion = preload("res://entities/explosion/explosion.tscn")
+var explosion_manager = ExplosionManager.new()
 
 func _ready() -> void:
 	update_color(tint)
@@ -22,12 +22,5 @@ func update_color(color:Color):
 
 func _on_area_entered(_area: Area2D) -> void:
 	$CollisionShape2D.set_deferred("disabled", true)
-	
-	$CarNode.visible = false
-	var parent_rotation = self.get_transform().get_rotation()
-	var parent_position = self.get_transform().get_origin()
-	
-	var explosion_instance = Explosion.instantiate() as Node2D
-	explosion_instance.position = parent_position
-	get_parent().add_child(explosion_instance)
+	explosion_manager.create_explosion(self.get_parent(), self.position)
 	queue_free()
