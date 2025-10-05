@@ -94,16 +94,23 @@ scale = Vector2(1, 1)
 tint = Color(0.72156864, 0.75686276, 0.47058824, 1)
 
 [node name="DemeritZones" type="Area2D" parent="."]
-visible = false
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DemeritZones"]
+light_mask = 0
+visibility_layer = 0
 position = Vector2(443, 182.5)
 shape = SubResource("RectangleShape2D_06t58")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DemeritZones"]
+light_mask = 0
+visibility_layer = 0
 position = Vector2(1012.5, 361.5)
 shape = SubResource("RectangleShape2D_pfgcb")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="DemeritZones"]
+light_mask = 0
+visibility_layer = 0
 position = Vector2(432, 597.5)
 shape = SubResource("RectangleShape2D_lsu70")
