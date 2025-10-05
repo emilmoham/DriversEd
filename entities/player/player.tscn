@@ -7,6 +7,8 @@
 size = Vector2(126, 62)
 
 [node name="Player" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_cyojo")
 
 [node name="FrontWheelLeft" type="ColorRect" parent="."]
@@ -86,4 +88,4 @@ texture = ExtResource("2_1kbk7")
 visible = false
 shape = SubResource("RectangleShape2D_1kbk7")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,8 +1,5 @@
 extends Area2D
 
-signal hit
-#signal fully_engulfed
-
 var wheel_base
 
 var speed_current
@@ -50,6 +47,7 @@ func adjust_speed(delta):
 	speed_current += speed_change;
 	speed_current = clamp(speed_current, -speed_max, speed_max)
 
-
-func _on_body_entered(body: Node2D) -> void:
-	hit.emit()
+func _on_area_entered(area: Area2D) -> void:
+	if area.collision_layer == CollisionGlobals.CRASH_LAYER:
+		ExplosionManager.new().create_explosion(self.get_parent(), self.position)
+		queue_free()

@@ -3,8 +3,6 @@ extends Area2D
 
 @export var tint = Color("#FFFFFF")
 
-var explosion_manager = ExplosionManager.new()
-
 func _ready() -> void:
 	update_color(tint)
 	
@@ -22,5 +20,5 @@ func update_color(color:Color):
 
 func _on_area_entered(_area: Area2D) -> void:
 	$CollisionShape2D.set_deferred("disabled", true)
-	explosion_manager.create_explosion(self.get_parent(), self.position)
+	ExplosionManager.new().create_explosion(self.get_parent(), self.position)
 	queue_free()
