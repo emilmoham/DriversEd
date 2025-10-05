@@ -92,3 +92,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_jieuk")
 }
 speed_scale = 2.5
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation__finished"]
