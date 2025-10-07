@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://bgvquiyx56ea8" path="res://entities/player/player_car.webp" id="2_1kbk7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1kbk7"]
-size = Vector2(126, 62)
+size = Vector2(122, 62)
 
 [node name="Player" type="Area2D"]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("1_cyojo")
 
 [node name="FrontWheelLeft" type="ColorRect" parent="."]
@@ -85,7 +85,7 @@ scale = Vector2(0.5772726, 0.57727265)
 texture = ExtResource("2_1kbk7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_1kbk7")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

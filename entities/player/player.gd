@@ -51,3 +51,6 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.collision_layer == CollisionGlobals.CRASH_LAYER:
 		ExplosionManager.new().create_explosion(self.get_parent(), self.position)
 		queue_free()
+
+func get_collision_rect() -> Rect2:
+	return $CollisionShape2D.get_shape().get_rect()
