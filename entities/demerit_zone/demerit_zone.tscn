@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://be47gx5gdtrqr"]
+
+[ext_resource type="Script" uid="uid://ot102bhri4f2" path="res://entities/demerit_zone/demerit_zone.gd" id="1_b3fq1"]
+
+[node name="DemeritZone" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_b3fq1")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="area_entered" from="." to="." method="_on_demerit_zones_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_demerit_zones_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

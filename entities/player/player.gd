@@ -1,10 +1,11 @@
+class_name Player
 extends Area2D
 
 var wheel_base
 
-var speed_current
-var speed_max = 400
-var acceleration = 400
+var speed_current: float
+var speed_max: float = 400
+var acceleration: float = 400
 
 var steer_angle_change_speed = PI/2
 var steer_angle_max = PI/6
@@ -37,7 +38,7 @@ func adjust_steering(delta):
 	$FrontWheelLeft.rotation = tire_rotation
 	$FrontWheelRight.rotation = tire_rotation
 	
-func adjust_speed(delta):
+func adjust_speed(delta: float):
 	var speed_change = 0
 	if Input.is_action_pressed("accelerate"):
 		speed_change += acceleration * delta
@@ -51,3 +52,9 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.collision_layer == CollisionGlobals.CRASH_LAYER:
 		ExplosionManager.new().create_explosion(self.get_parent(), self.position)
 		queue_free()
+
+func get_collision_rect() -> Rect2:
+	return $CollisionShape2D.get_shape().get_rect()
+
+func get_current_speed() -> float:
+	return speed_current
