@@ -3,6 +3,12 @@ extends Area2D
 
 var wheel_base
 
+@export var is_parked: bool = false:
+	set(parked):
+		if parked:
+			speed_current = 0
+		is_parked = parked
+
 var speed_current: float
 var speed_max: float = 400
 var acceleration: float = 400
@@ -27,7 +33,7 @@ func _physics_process(delta: float) -> void:
 	position = (front_wheel + back_wheel) / 2
 	rotation = atan2(front_wheel.y - back_wheel.y, front_wheel.x - back_wheel.x)
 
-func adjust_steering(delta):
+func adjust_steering(delta: float):
 	var turn = 0
 	if Input.is_action_pressed("steer_left"):
 		turn -= steer_angle_change_speed * delta
@@ -40,6 +46,9 @@ func adjust_steering(delta):
 	
 func adjust_speed(delta: float):
 	var speed_change = 0
+	
+	if is_parked: return
+	
 	if Input.is_action_pressed("accelerate"):
 		speed_change += acceleration * delta
 	if Input.is_action_pressed("brake"):

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckdug6bo4a48m"]
+[gd_scene load_steps=7 format=3 uid="uid://ckdug6bo4a48m"]
 
 [ext_resource type="Script" uid="uid://k5lkkhx5u0ce" path="res://entities/explosion/explosion.gd" id="1_x74ca"]
 [ext_resource type="Texture2D" uid="uid://qanyqsshm85w" path="res://entities/explosion/explosion.webp" id="1_yde0h"]
+[ext_resource type="AudioStream" uid="uid://rr8g0es1k4lu" path="res://entities/explosion/explosion.mp3" id="3_nacus"]
 
 [sub_resource type="Animation" id="Animation_nacus"]
 length = 0.001
@@ -93,4 +94,8 @@ libraries = {
 }
 speed_scale = 2.5
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation__finished"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_nacus")
+autoplay = true
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

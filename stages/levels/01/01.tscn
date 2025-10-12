@@ -2,14 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://dimy7t38e8mwy" path="res://stages/levels/01/01_background.webp" id="1_7q321"]
 [ext_resource type="Script" uid="uid://cjrcynyvca5ey" path="res://stages/levels/01/01.gd" id="1_uojxv"]
-[ext_resource type="Texture2D" uid="uid://2viwgyyatugg" path="res://entities/ui/HUD_background.webp" id="2_765rp"]
+[ext_resource type="PackedScene" uid="uid://crwdi55i0ontk" path="res://entities/ui/exam_ui/exam_ui.tscn" id="3_3nmem"]
 [ext_resource type="PackedScene" uid="uid://urr8bagcauuh" path="res://entities/player/player.tscn" id="3_cdfs6"]
 [ext_resource type="PackedScene" uid="uid://b0ehc2lb0ucx7" path="res://entities/base_car/base_car.tscn" id="4_ii8ex"]
 [ext_resource type="PackedScene" uid="uid://coanmt2qnu7dy" path="res://entities/goal/goal.tscn" id="5_nufpr"]
 [ext_resource type="PackedScene" uid="uid://be47gx5gdtrqr" path="res://entities/demerit_zone/demerit_zone.tscn" id="7_3nmem"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3nmem"]
-size = Vector2(258, 165.20313)
+size = Vector2(258, 163.60156)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmfkw"]
 size = Vector2(730, 20)
@@ -27,25 +27,32 @@ script = ExtResource("1_uojxv")
 position = Vector2(593, 360)
 texture = ExtResource("1_7q321")
 
-[node name="HUD" type="Sprite2D" parent="."]
-position = Vector2(120, 360)
-texture = ExtResource("2_765rp")
+[node name="ExamUI" parent="." instance=ExtResource("3_3nmem")]
+test_number = 1
+test_description = "Backing out of a Parking Space
 
-[node name="Player" parent="." instance=ExtResource("3_cdfs6")]
-position = Vector2(467, 420)
-rotation = -3.1415927
-scale = Vector2(1.1, 1.1)
+Back up out of your parking space and head towards the exit at the top of the screen."
 
 [node name="Goal" parent="." node_paths=PackedStringArray("player", "collision_shape") instance=ExtResource("5_nufpr")]
 position = Vector2(718, 83)
 player = NodePath("../Player")
 goal_speed_threshold = 50.0
 collision_shape = NodePath("GoalArea")
-debug_area_color = Color(0, 1, 0, 0.3)
 metadata/_edit_group_ = true
 
 [node name="GoalArea" type="CollisionShape2D" parent="Goal"]
 shape = SubResource("RectangleShape2D_3nmem")
+
+[node name="Player" parent="." instance=ExtResource("3_cdfs6")]
+position = Vector2(467, 420)
+rotation = -3.1415927
+scale = Vector2(1.1, 1.1)
+
+[node name="DemeritZone" parent="." instance=ExtResource("7_3nmem")]
+position = Vector2(0, 20)
+
+[node name="DisallowedArea" type="CollisionPolygon2D" parent="DemeritZone"]
+polygon = PackedVector2Array(298, -99, 589, -99, 589, 347, 365, 347, 365, 453, 560, 453, 559, 563, 847, 564, 847, -19, 589, -19, 589, -99, 1043, -99, 1044, 807, 298, 807)
 
 [node name="WorldBounds" type="Area2D" parent="."]
 
@@ -132,11 +139,7 @@ position = Vector2(958.0001, 531)
 scale = Vector2(1, 1)
 tint = Color(0.72156864, 0.75686276, 0.47058824, 1)
 
-[node name="DemeritZone" parent="." instance=ExtResource("7_3nmem")]
-position = Vector2(0, 20)
-
-[node name="DisallowedArea" type="CollisionPolygon2D" parent="DemeritZone"]
-polygon = PackedVector2Array(298, -99, 589, -99, 589, 347, 365, 347, 365, 453, 560, 453, 559, 563, 847, 564, 847, -19, 589, -19, 589, -99, 1043, -99, 1044, 807, 298, 807)
-
 [connection signal="parked" from="Goal" to="." method="_on_parked"]
+[connection signal="area_entered" from="DemeritZone" to="." method="_on_demerit_zone_area_entered"]
+[connection signal="area_exited" from="DemeritZone" to="." method="_on_demerit_zone_area_exited"]
 [connection signal="demerit" from="DemeritZone" to="." method="_on_demerit_zone_demerit"]

@@ -16,6 +16,7 @@ var is_parked: bool = false:
 	set(new_is_parked):
 		if is_parked != new_is_parked && new_is_parked:
 			emit_signal("parked")
+			$LevelCompletedSound.play()
 			set_parking_zone_visibility(true)
 			check_if_player_in_area = false
 		is_parked = new_is_parked
@@ -79,7 +80,7 @@ func get_player_bounding_points() -> Array:
 	var d = Vector2(player_radius * cos(current_rotation - player_phi), player_radius * sin(current_rotation - player_phi))
 	 
 	return [
-		a
+		a,
 		-d,
 		-a,
 		d

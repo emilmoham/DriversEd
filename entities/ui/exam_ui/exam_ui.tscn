@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://crwdi55i0ontk"]
+
+[ext_resource type="Script" uid="uid://dwktkf6la63g1" path="res://entities/ui/exam_ui/exam_ui.gd" id="1_anin4"]
+[ext_resource type="Texture2D" uid="uid://2viwgyyatugg" path="res://entities/ui/HUD_background.webp" id="1_t6yxt"]
+[ext_resource type="PackedScene" uid="uid://myndqgismvx8" path="res://entities/instructor/instructor_exam/instructor_exam.tscn" id="2_anin4"]
+
+[node name="ExamUI" type="Node2D"]
+script = ExtResource("1_anin4")
+
+[node name="HudBackground" type="Sprite2D" parent="."]
+position = Vector2(120, 360)
+texture = ExtResource("1_t6yxt")
+
+[node name="InstructorExam" parent="." instance=ExtResource("2_anin4")]
+position = Vector2(109, 542)
+scale = Vector2(0.5886793, 0.58867925)
+frame_progress = 0.37081316
+speed_scale = 1.5
+
+[node name="DemeritsHeaderLabel" type="Label" parent="."]
+offset_left = 55.0
+offset_top = 650.0
+offset_right = 165.0
+offset_bottom = 684.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "demerits:"
+
+[node name="DemeritsCountLabel" type="Label" parent="."]
+offset_left = 73.0
+offset_top = 681.0
+offset_right = 142.0
+offset_bottom = 705.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+horizontal_alignment = 1
+
+[node name="TestNumberLabel" type="Label" parent="."]
+offset_left = 5.0
+offset_top = 13.0
+offset_right = 66.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Test #0:"
+
+[node name="TestDescriptionLabel" type="Label" parent="."]
+offset_left = 5.0
+offset_top = 44.0
+offset_right = 211.0
+offset_bottom = 472.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 24
+text = "Description Here"
+autowrap_mode = 2

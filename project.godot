@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 CollisionGlobals="*res://common/collisions/collision_globals.gd"
+InstructorGlobals="*res://common/instructor/instructor_globals.gd"
 
 [display]
 
