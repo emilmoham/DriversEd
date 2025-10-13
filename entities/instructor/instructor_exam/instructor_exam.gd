@@ -1,13 +1,16 @@
 extends AnimatedSprite2D
 
 func play_anmiation(desired_animation: InstructorGlobals.InstructorAnimation) -> void:
-	$AudioStreamPlayer2D.stop()
+	$DemeritBabbleSound.stop()
 	
 	match desired_animation:
 		InstructorGlobals.InstructorAnimation.CALM:
 			animation = "calm"
 		InstructorGlobals.InstructorAnimation.ANGRY:
 			animation = "angry"
-			$AudioStreamPlayer2D.play()
+			$DemeritBabbleSound.play()
+		InstructorGlobals.InstructorAnimation.EXPLODED:
+			ExplosionManager.new().create_explosion(self.get_parent(), self.position)
+			animation = "exploded"
 	
 	play()

@@ -1,6 +1,8 @@
 class_name Player
 extends Area2D
 
+signal player_dead
+
 var wheel_base
 
 @export var is_parked: bool = false:
@@ -60,7 +62,7 @@ func adjust_speed(delta: float):
 func _on_area_entered(area: Area2D) -> void:
 	if area.collision_layer == CollisionGlobals.CRASH_LAYER:
 		ExplosionManager.new().create_explosion(self.get_parent(), self.position)
-		queue_free()
+		emit_signal("player_dead")
 
 func get_collision_rect() -> Rect2:
 	return $CollisionShape2D.get_shape().get_rect()

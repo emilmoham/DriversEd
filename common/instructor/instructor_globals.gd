@@ -2,5 +2,6 @@ extends Node
 
 enum InstructorAnimation {
 	CALM,
-	ANGRY
+	ANGRY,
+	EXPLODED
 }
