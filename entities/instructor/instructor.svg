@@ -25,9 +25,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:zoom="1.2938725"
-     inkscape:cx="309.53591"
-     inkscape:cy="421.98904"
+     inkscape:zoom="0.64693625"
+     inkscape:cx="115.93105"
+     inkscape:cy="431.26351"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="2552"
@@ -228,7 +228,8 @@
      inkscape:groupmode="layer"
      id="layer9"
      inkscape:label="Shirt"
-     sodipodi:insensitive="true">
+     sodipodi:insensitive="true"
+     style="display:inline">
     <path
        style="opacity:1;fill:#c8f9ff;fill-opacity:1;stroke:#000000;stroke-width:0.79375;stroke-dasharray:none"
        d="m 142.42694,177.34352 c -4.6464,0.3708 -8.69265,1.12351 -14.72325,0.61346 1.55667,-10.41275 4.32276,-19.47095 2.70949,-33.43403 3.84338,-0.91066 7.10995,-0.28317 10.58232,-0.20449 z"

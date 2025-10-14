@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dimy7t38e8mwy"
-path="res://.godot/imported/01_background.webp-805029ee7d362924160f7c8ba12cdc90.ctex"
+uid="uid://ca0hfxqsnkd6e"
+path="res://.godot/imported/stop_sign.webp-e7524a87d81d09dff939d586d5db4c79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://stages/levels/01/01_background.webp"
-dest_files=["res://.godot/imported/01_background.webp-805029ee7d362924160f7c8ba12cdc90.ctex"]
+source_file="res://assets/backgrounds/stop_sign.webp"
+dest_files=["res://.godot/imported/stop_sign.webp-e7524a87d81d09dff939d586d5db4c79.ctex"]
 
 [params]
 

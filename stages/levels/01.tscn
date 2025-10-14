@@ -1,15 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://bnqqulpyyy5dy"]
+[gd_scene load_steps=11 format=3 uid="uid://bnqqulpyyy5dy"]
 
-[ext_resource type="Texture2D" uid="uid://dimy7t38e8mwy" path="res://stages/levels/01/01_background.webp" id="1_7q321"]
-[ext_resource type="Script" uid="uid://cjrcynyvca5ey" path="res://stages/levels/01/01.gd" id="1_uojxv"]
-[ext_resource type="PackedScene" uid="uid://crwdi55i0ontk" path="res://entities/ui/exam_ui/exam_ui.tscn" id="3_3nmem"]
-[ext_resource type="PackedScene" uid="uid://urr8bagcauuh" path="res://entities/player/player.tscn" id="3_cdfs6"]
-[ext_resource type="PackedScene" uid="uid://b0ehc2lb0ucx7" path="res://entities/base_car/base_car.tscn" id="4_ii8ex"]
-[ext_resource type="PackedScene" uid="uid://coanmt2qnu7dy" path="res://entities/goal/goal.tscn" id="5_nufpr"]
-[ext_resource type="PackedScene" uid="uid://be47gx5gdtrqr" path="res://entities/demerit_zone/demerit_zone.tscn" id="7_3nmem"]
+[ext_resource type="Script" uid="uid://cjrcynyvca5ey" path="res://stages/levels/level.gd" id="1_t7bvy"]
+[ext_resource type="Texture2D" uid="uid://dimy7t38e8mwy" path="res://assets/backgrounds/parking_log.webp" id="2_bdleg"]
+[ext_resource type="PackedScene" uid="uid://coanmt2qnu7dy" path="res://entities/goal/goal.tscn" id="4_8oowv"]
+[ext_resource type="PackedScene" uid="uid://urr8bagcauuh" path="res://entities/player/player.tscn" id="5_y6lhb"]
+[ext_resource type="PackedScene" uid="uid://be47gx5gdtrqr" path="res://entities/demerit_zone/demerit_zone.tscn" id="6_m1xsc"]
+[ext_resource type="PackedScene" uid="uid://b0ehc2lb0ucx7" path="res://entities/base_car/base_car.tscn" id="7_2y4ie"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3nmem"]
-size = Vector2(258, 163.60156)
+size = Vector2(192, 181.80078)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmfkw"]
 size = Vector2(730, 20)
@@ -21,20 +20,17 @@ size = Vector2(730, 20)
 size = Vector2(20, 1000)
 
 [node name="01" type="Node2D"]
-script = ExtResource("1_uojxv")
-
-[node name="01Background" type="Sprite2D" parent="."]
-position = Vector2(593, 360)
-texture = ExtResource("1_7q321")
-
-[node name="ExamUI" parent="." instance=ExtResource("3_3nmem")]
-test_number = 1
+script = ExtResource("1_t7bvy")
 test_description = "Backing out of a Parking Space
 
 Back up out of your parking space and head towards the exit at the top of the screen."
 
-[node name="Goal" parent="." node_paths=PackedStringArray("player", "collision_shape") instance=ExtResource("5_nufpr")]
-position = Vector2(718, 83)
+[node name="01Background" type="Sprite2D" parent="."]
+position = Vector2(593, 360)
+texture = ExtResource("2_bdleg")
+
+[node name="Goal" parent="." node_paths=PackedStringArray("player", "collision_shape") instance=ExtResource("4_8oowv")]
+position = Vector2(718, 92)
 player = NodePath("../Player")
 goal_speed_threshold = 50.0
 collision_shape = NodePath("GoalArea")
@@ -43,12 +39,12 @@ metadata/_edit_group_ = true
 [node name="GoalArea" type="CollisionShape2D" parent="Goal"]
 shape = SubResource("RectangleShape2D_3nmem")
 
-[node name="Player" parent="." instance=ExtResource("3_cdfs6")]
+[node name="Player" parent="." instance=ExtResource("5_y6lhb")]
 position = Vector2(467, 420)
 rotation = -3.1415927
 scale = Vector2(1.1, 1.1)
 
-[node name="DemeritZone" parent="." instance=ExtResource("7_3nmem")]
+[node name="DemeritZone" parent="." instance=ExtResource("6_m1xsc")]
 position = Vector2(0, 20)
 
 [node name="DisallowedArea" type="CollisionPolygon2D" parent="DemeritZone"]
@@ -75,71 +71,72 @@ shape = SubResource("RectangleShape2D_nufpr")
 
 [node name="Obstacles" type="Node2D" parent="."]
 
-[node name="Car" parent="Obstacles" instance=ExtResource("4_ii8ex")]
+[node name="Car" parent="Obstacles" instance=ExtResource("7_2y4ie")]
 position = Vector2(960.00006, 310.00003)
 rotation = 0.0009999275
 scale = Vector2(1, 1)
 tint = Color(0.7372549, 0.7372549, 0.89411765, 1)
 
-[node name="Car2" parent="Obstacles" instance=ExtResource("4_ii8ex")]
+[node name="Car2" parent="Obstacles" instance=ExtResource("7_2y4ie")]
 position = Vector2(958.99994, 200.99997)
 rotation = 0.09811221
 scale = Vector2(1, 1)
 tint = Color(0.15686275, 0.21176471, 0.9882353, 1)
 
-[node name="Car3" parent="Obstacles" instance=ExtResource("4_ii8ex")]
+[node name="Car3" parent="Obstacles" instance=ExtResource("7_2y4ie")]
 position = Vector2(459.00003, 90)
 rotation = -3.1241393
 scale = Vector2(1, 1)
 tint = Color(0.972549, 0.23529412, 0.03529412, 1)
 
-[node name="Car4" parent="Obstacles" instance=ExtResource("4_ii8ex")]
+[node name="Car4" parent="Obstacles" instance=ExtResource("7_2y4ie")]
 position = Vector2(459, 311.00003)
 rotation = 3.1415923
 scale = Vector2(1, 1)
 tint = Color(0.14509805, 0.20392157, 0.9490196, 1)
 
-[node name="Car5" parent="Obstacles" instance=ExtResource("4_ii8ex")]
+[node name="Car5" parent="Obstacles" instance=ExtResource("7_2y4ie")]
 position = Vector2(472.00003, 523)
 rotation = 3.1415918
 scale = Vector2(1, 1)
 tint = Color(0.6, 0.6156863, 0.80784315, 1)
 
-[node name="Car6" parent="Obstacles" instance=ExtResource("4_ii8ex")]
+[node name="Car6" parent="Obstacles" instance=ExtResource("7_2y4ie")]
 position = Vector2(473.99997, 197.99997)
 rotation = 3.0466387
 scale = Vector2(0.99999994, 0.99999994)
 tint = Color(0.6627451, 0.6862745, 0.41960785, 1)
 
-[node name="Car7" parent="Obstacles" instance=ExtResource("4_ii8ex")]
+[node name="Car7" parent="Obstacles" instance=ExtResource("7_2y4ie")]
 position = Vector2(468.00003, 643)
 rotation = 3.0706687
 scale = Vector2(0.99999994, 0.99999994)
 tint = Color(0.83137256, 0.7764706, 0.6666667, 1)
 
-[node name="Car8" parent="Obstacles" instance=ExtResource("4_ii8ex")]
+[node name="Car8" parent="Obstacles" instance=ExtResource("7_2y4ie")]
 position = Vector2(956.00006, 642.00006)
 rotation = 3.1268933
 scale = Vector2(0.99999994, 0.99999994)
 tint = Color(0.9882353, 0.9098039, 0.14509805, 1)
 
-[node name="Car9" parent="Obstacles" instance=ExtResource("4_ii8ex")]
+[node name="Car9" parent="Obstacles" instance=ExtResource("7_2y4ie")]
 position = Vector2(951.0001, 84)
 scale = Vector2(1, 1)
 tint = Color(0.62352943, 0.6117647, 0.7764706, 1)
 
-[node name="Car10" parent="Obstacles" instance=ExtResource("4_ii8ex")]
+[node name="Car10" parent="Obstacles" instance=ExtResource("7_2y4ie")]
 position = Vector2(960.0001, 422)
 rotation = 0.06704685
 scale = Vector2(1, 1)
 tint = Color(1, 0.16862746, 0.011764706, 1)
 
-[node name="Car11" parent="Obstacles" instance=ExtResource("4_ii8ex")]
+[node name="Car11" parent="Obstacles" instance=ExtResource("7_2y4ie")]
 position = Vector2(958.0001, 531)
 scale = Vector2(1, 1)
 tint = Color(0.72156864, 0.75686276, 0.47058824, 1)
 
 [connection signal="parked" from="Goal" to="." method="_on_parked"]
+[connection signal="player_dead" from="Player" to="." method="_on_player_player_dead"]
 [connection signal="area_entered" from="DemeritZone" to="." method="_on_demerit_zone_area_entered"]
 [connection signal="area_exited" from="DemeritZone" to="." method="_on_demerit_zone_area_exited"]
 [connection signal="demerit" from="DemeritZone" to="." method="_on_demerit_zone_demerit"]

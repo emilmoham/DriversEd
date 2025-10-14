@@ -1,3 +1,4 @@
+class_name ExamUI
 extends Node2D
 
 @export var test_number: int = 0

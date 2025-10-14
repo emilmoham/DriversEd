@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dllnjvhn05mef"
-path="res://.godot/imported/01_background.svg-ac17ca75dea19e3b6ea0475b45b973b3.ctex"
+uid="uid://cqk7uex1f0dx2"
+path="res://.godot/imported/intersection.webp-c893983a25dd079b2fbb22052a15b4b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://stages/levels/01/01_background.svg"
-dest_files=["res://.godot/imported/01_background.svg-ac17ca75dea19e3b6ea0475b45b973b3.ctex"]
+source_file="res://assets/backgrounds/intersection.webp"
+dest_files=["res://.godot/imported/intersection.webp-c893983a25dd079b2fbb22052a15b4b9.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
