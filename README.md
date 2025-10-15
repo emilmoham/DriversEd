@@ -43,10 +43,10 @@ by 'Hopkins The Movie' on YouTube
         * ☐ Merging with Traffic
         * ☐ Parking in a Parking Space
     * ☐ Take the Exam
-        * ☐ Backing Out of a Parking Space
-        * ☐ Stopping at an Intersection
-        * ☐ Right Turn
-        * ☐ Left Turn
-        * ☐ Parallel Parking
-        * ☐ Merging with Traffic
-        * ☐ Parking in a Parking Space
+        * 🟨 Backing Out of a Parking Space
+        * 🟨 Stopping at an Intersection
+        * 🟨 Right Turn
+        * ✅ Left Turn
+        * ✅ Parallel Parking
+        * ✅ Merging with Traffic
+        * ✅ Parking in a Parking Space

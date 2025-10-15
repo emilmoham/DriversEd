@@ -1,13 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://cb74jb76vyru4"]
+[gd_scene load_steps=10 format=3 uid="uid://b5lfn2dh1xdrt"]
 
-[ext_resource type="Script" uid="uid://cjrcynyvca5ey" path="res://stages/levels/level.gd" id="1_lti1v"]
-[ext_resource type="Texture2D" uid="uid://ca0hfxqsnkd6e" path="res://assets/backgrounds/stop_sign.webp" id="2_dpevj"]
-[ext_resource type="PackedScene" uid="uid://coanmt2qnu7dy" path="res://entities/goal/goal.tscn" id="3_w87v1"]
-[ext_resource type="PackedScene" uid="uid://urr8bagcauuh" path="res://entities/player/player.tscn" id="4_euebl"]
-[ext_resource type="PackedScene" uid="uid://be47gx5gdtrqr" path="res://entities/demerit_zone/demerit_zone.tscn" id="5_q3mwf"]
+[ext_resource type="Script" uid="uid://cjrcynyvca5ey" path="res://stages/levels/level.gd" id="1_cykva"]
+[ext_resource type="Texture2D" uid="uid://cqk7uex1f0dx2" path="res://assets/backgrounds/intersection.webp" id="2_cykva"]
+[ext_resource type="PackedScene" uid="uid://coanmt2qnu7dy" path="res://entities/goal/goal.tscn" id="3_sgwxc"]
+[ext_resource type="PackedScene" uid="uid://urr8bagcauuh" path="res://entities/player/player.tscn" id="4_7aww2"]
+[ext_resource type="PackedScene" uid="uid://be47gx5gdtrqr" path="res://entities/demerit_zone/demerit_zone.tscn" id="5_xeycn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3nmem"]
-size = Vector2(141.5, 149.9502)
+size = Vector2(167.875, 144.49377)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmfkw"]
 size = Vector2(892, 20)
@@ -18,18 +18,18 @@ size = Vector2(890.5, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nufpr"]
 size = Vector2(20, 1000)
 
-[node name="02" type="Node2D"]
-script = ExtResource("1_lti1v")
-test_description = "Stopping at an Intersection
+[node name="03" type="Node2D"]
+script = ExtResource("1_cykva")
+test_description = "Right Turn
 
-Approach the intersection and stop at the stop sign."
+Make a right turn at this intersection."
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(593, 360)
-texture = ExtResource("2_dpevj")
+texture = ExtResource("2_cykva")
 
-[node name="Goal" parent="." node_paths=PackedStringArray("player", "collision_shape") instance=ExtResource("3_w87v1")]
-position = Vector2(669, 385)
+[node name="Goal" parent="." node_paths=PackedStringArray("player", "collision_shape") instance=ExtResource("3_sgwxc")]
+position = Vector2(876, 434)
 player = NodePath("../Player")
 goal_speed_threshold = 50.0
 collision_shape = NodePath("GoalArea")
@@ -38,16 +38,17 @@ metadata/_edit_group_ = true
 [node name="GoalArea" type="CollisionShape2D" parent="Goal"]
 shape = SubResource("RectangleShape2D_3nmem")
 
-[node name="Player" parent="." instance=ExtResource("4_euebl")]
+[node name="Player" parent="." instance=ExtResource("4_7aww2")]
 position = Vector2(665, 641)
 rotation = -1.5707964
 scale = Vector2(1.1, 1.1)
 
-[node name="DemeritZone" parent="." instance=ExtResource("5_q3mwf")]
-position = Vector2(0, 20)
+[node name="DemeritZone" parent="." instance=ExtResource("5_xeycn")]
+position = Vector2(0, 1)
 
 [node name="DisallowedArea" type="CollisionPolygon2D" parent="DemeritZone"]
-polygon = PackedVector2Array(146, -98, 1043, -98, 1043, 806, 742, 806, 743, 277, 596, 277, 596, 701, 741, 701, 741, 806, 146, 806)
+position = Vector2(0, -1)
+polygon = PackedVector2Array(146, -77, 1043, -77, 1043, 361, 708, 361, 598, 471, 597, 720, 743, 720, 744, 508, 961, 507, 961, 362, 1043, 362, 1043, 826, 145, 825)
 
 [node name="WorldBounds" type="Area2D" parent="."]
 

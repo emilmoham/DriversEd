@@ -10,6 +10,10 @@ func _ready() -> void:
 	$TestDescriptionLabel.text = test_description
 	$DemeritsCountLabel.text = str(demerits)
 	
+func _draw() -> void:
+	$TestNumberLabel.text = "Test #%d:" % test_number
+	$TestDescriptionLabel.text = test_description
+	
 func _process(_delta: float) -> void:
 	$DemeritsCountLabel.text = str(demerits)
 

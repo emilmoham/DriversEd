@@ -1,0 +1,150 @@
+[gd_scene load_steps=14 format=3 uid="uid://bv173i6qqmiak"]
+
+[ext_resource type="Script" uid="uid://cjrcynyvca5ey" path="res://stages/levels/level.gd" id="1_yd3ng"]
+[ext_resource type="Texture2D" uid="uid://cdl3rj5jccatb" path="res://assets/backgrounds/parallel_parking.webp" id="2_yd3ng"]
+[ext_resource type="PackedScene" uid="uid://coanmt2qnu7dy" path="res://entities/goal/goal.tscn" id="3_668n4"]
+[ext_resource type="PackedScene" uid="uid://urr8bagcauuh" path="res://entities/player/player.tscn" id="4_dayho"]
+[ext_resource type="PackedScene" uid="uid://be47gx5gdtrqr" path="res://entities/demerit_zone/demerit_zone.tscn" id="5_oly7c"]
+[ext_resource type="PackedScene" uid="uid://b0ehc2lb0ucx7" path="res://entities/base_car/base_car.tscn" id="6_a7bje"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nmem"]
+size = Vector2(105.99219, 202.40585)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmfkw"]
+size = Vector2(1094, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uojxv"]
+size = Vector2(1098, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nufpr"]
+size = Vector2(20, 1100)
+
+[sub_resource type="Animation" id="Animation_5cxev"]
+resource_name = "Cars"
+length = 5.0
+loop_mode = 1
+step = 0.6033
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Car_4:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.0064254, 3.026319, 3.0586462),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(371, -76), Vector2(371, 794), Vector2(110, 800), Vector2(103, -76)]
+}
+
+[sub_resource type="Animation" id="Animation_ms56d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Car_4:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(371, -76)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_itqtj"]
+_data = {
+&"Cars": SubResource("Animation_5cxev"),
+&"RESET": SubResource("Animation_ms56d")
+}
+
+[node name="05" type="Node2D"]
+script = ExtResource("1_yd3ng")
+test_description = "Parallel Parking
+
+Pull into the open parking spot on the right and park."
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(593, 360)
+texture = ExtResource("2_yd3ng")
+
+[node name="Goal" parent="." node_paths=PackedStringArray("player", "collision_shape") instance=ExtResource("3_668n4")]
+position = Vector2(689, 397)
+player = NodePath("../Player")
+goal_speed_threshold = 50.0
+collision_shape = NodePath("GoalArea")
+metadata/_edit_group_ = true
+
+[node name="GoalArea" type="CollisionShape2D" parent="Goal"]
+shape = SubResource("RectangleShape2D_3nmem")
+
+[node name="Player" parent="." instance=ExtResource("4_dayho")]
+position = Vector2(599.99994, 215)
+rotation = -1.5707964
+scale = Vector2(1.1, 1.1)
+
+[node name="DemeritZone" parent="." instance=ExtResource("5_oly7c")]
+visible = false
+position = Vector2(0, 1)
+
+[node name="DisallowedArea" type="CollisionPolygon2D" parent="DemeritZone"]
+position = Vector2(0, -1)
+polygon = PackedVector2Array(44, -151, 1141, -153, 1141, 891, 743, 891, 745, 294, 662, 293, 662, 144, 523, 144, 523, 498, 634, 500, 743, 499, 741, 891, 44, 891)
+
+[node name="WorldBounds" type="Area2D" parent="."]
+
+[node name="Bottom" type="CollisionShape2D" parent="WorldBounds"]
+position = Vector2(592, 902)
+shape = SubResource("RectangleShape2D_lmfkw")
+
+[node name="Top" type="CollisionShape2D" parent="WorldBounds"]
+position = Vector2(592, -164)
+rotation = -3.1415925
+shape = SubResource("RectangleShape2D_uojxv")
+
+[node name="Left" type="CollisionShape2D" parent="WorldBounds"]
+position = Vector2(32, 375)
+shape = SubResource("RectangleShape2D_nufpr")
+
+[node name="Right" type="CollisionShape2D" parent="WorldBounds"]
+position = Vector2(1152, 375)
+shape = SubResource("RectangleShape2D_nufpr")
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Obstacles"]
+root_node = NodePath("../Car_1")
+libraries = {
+&"": SubResource("AnimationLibrary_itqtj")
+}
+autoplay = "Cars"
+
+[node name="Car_1" parent="Obstacles" instance=ExtResource("6_a7bje")]
+position = Vector2(699, 54)
+rotation = -1.5707964
+scale = Vector2(1, 1)
+tint = Color(0.12941177, 0.19607843, 0.84313726, 1)
+
+[node name="Car_2" parent="Obstacles" instance=ExtResource("6_a7bje")]
+position = Vector2(699, 226)
+rotation = -1.5707964
+scale = Vector2(1, 1)
+tint = Color(0.60784316, 0.75686276, 0.5294118, 1)
+
+[node name="Car_3" parent="Obstacles" instance=ExtResource("6_a7bje")]
+position = Vector2(700, 570)
+rotation = -1.5707964
+scale = Vector2(1, 1)
+tint = Color(0.6313726, 0.59607846, 0.49803922, 1)
+
+[node name="Car_4" parent="Obstacles" instance=ExtResource("6_a7bje")]
+position = Vector2(371, -76)
+rotation = 1.5707964
+scale = Vector2(1, 1)
+tint = Color(1, 0.21960784, 0.05490196, 1)
+
+[connection signal="parked" from="Goal" to="." method="_on_parked"]
+[connection signal="player_dead" from="Player" to="." method="_on_player_player_dead"]
+[connection signal="area_entered" from="DemeritZone" to="." method="_on_demerit_zone_area_entered"]
+[connection signal="area_exited" from="DemeritZone" to="." method="_on_demerit_zone_area_exited"]
+[connection signal="demerit" from="DemeritZone" to="." method="_on_demerit_zone_demerit"]

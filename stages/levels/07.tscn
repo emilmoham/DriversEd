@@ -1,14 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://bnqqulpyyy5dy"]
+[gd_scene load_steps=11 format=3 uid="uid://c5k8xdtmpx86k"]
 
-[ext_resource type="Script" uid="uid://cjrcynyvca5ey" path="res://stages/levels/level.gd" id="1_t7bvy"]
-[ext_resource type="Texture2D" uid="uid://dimy7t38e8mwy" path="res://assets/backgrounds/parking_log.webp" id="2_bdleg"]
-[ext_resource type="PackedScene" uid="uid://coanmt2qnu7dy" path="res://entities/goal/goal.tscn" id="4_8oowv"]
-[ext_resource type="PackedScene" uid="uid://urr8bagcauuh" path="res://entities/player/player.tscn" id="5_y6lhb"]
-[ext_resource type="PackedScene" uid="uid://be47gx5gdtrqr" path="res://entities/demerit_zone/demerit_zone.tscn" id="6_m1xsc"]
-[ext_resource type="PackedScene" uid="uid://b0ehc2lb0ucx7" path="res://entities/base_car/base_car.tscn" id="7_2y4ie"]
+[ext_resource type="Script" uid="uid://cjrcynyvca5ey" path="res://stages/levels/level.gd" id="1_ygrpm"]
+[ext_resource type="Texture2D" uid="uid://dimy7t38e8mwy" path="res://assets/backgrounds/parking_log.webp" id="2_ygrpm"]
+[ext_resource type="PackedScene" uid="uid://coanmt2qnu7dy" path="res://entities/goal/goal.tscn" id="3_ohnpj"]
+[ext_resource type="PackedScene" uid="uid://urr8bagcauuh" path="res://entities/player/player.tscn" id="4_oeusl"]
+[ext_resource type="PackedScene" uid="uid://be47gx5gdtrqr" path="res://entities/demerit_zone/demerit_zone.tscn" id="5_g7tm2"]
+[ext_resource type="PackedScene" uid="uid://b0ehc2lb0ucx7" path="res://entities/base_car/base_car.tscn" id="6_3u1ua"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3nmem"]
-size = Vector2(192, 181.80078)
+size = Vector2(175, 102.90039)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmfkw"]
 size = Vector2(730, 20)
@@ -19,18 +19,18 @@ size = Vector2(730, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nufpr"]
 size = Vector2(20, 1000)
 
-[node name="01" type="Node2D"]
-script = ExtResource("1_t7bvy")
-test_description = "Backing out of a Parking Space
+[node name="07" type="Node2D"]
+script = ExtResource("1_ygrpm")
+test_description = "Parkign in a Parking Space
 
-Back up out of your parking space and head towards the exit at the top of the screen."
+Pull into the empty space on the left."
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(593, 360)
-texture = ExtResource("2_bdleg")
+texture = ExtResource("2_ygrpm")
 
-[node name="Goal" parent="." node_paths=PackedStringArray("player", "collision_shape") instance=ExtResource("4_8oowv")]
-position = Vector2(718, 92)
+[node name="Goal" parent="." node_paths=PackedStringArray("player", "collision_shape") instance=ExtResource("3_ohnpj")]
+position = Vector2(459, 419)
 player = NodePath("../Player")
 goal_speed_threshold = 50.0
 collision_shape = NodePath("GoalArea")
@@ -39,16 +39,16 @@ metadata/_edit_group_ = true
 [node name="GoalArea" type="CollisionShape2D" parent="Goal"]
 shape = SubResource("RectangleShape2D_3nmem")
 
-[node name="Player" parent="." instance=ExtResource("5_y6lhb")]
-position = Vector2(467, 420)
-rotation = -3.1415927
+[node name="Player" parent="." instance=ExtResource("4_oeusl")]
+position = Vector2(716, 650)
+rotation = -1.5707964
 scale = Vector2(1.1, 1.1)
 
-[node name="DemeritZone" parent="." instance=ExtResource("6_m1xsc")]
+[node name="DemeritZone" parent="." instance=ExtResource("5_g7tm2")]
 position = Vector2(0, 20)
 
 [node name="DisallowedArea" type="CollisionPolygon2D" parent="DemeritZone"]
-polygon = PackedVector2Array(298, -99, 589, -99, 589, 347, 365, 347, 365, 453, 560, 453, 559, 563, 847, 564, 847, -19, 589, -19, 589, -99, 1043, -99, 1044, 807, 298, 807)
+polygon = PackedVector2Array(298, -99, 589, -99, 589, 342, 368, 342, 368, 457, 576, 457, 597, 477, 596, 704, 841, 703, 842, 343, 591, 342, 589, -99, 1043, -99, 1044, 807, 298, 807)
 
 [node name="WorldBounds" type="Area2D" parent="."]
 
@@ -71,66 +71,66 @@ shape = SubResource("RectangleShape2D_nufpr")
 
 [node name="Obstacles" type="Node2D" parent="."]
 
-[node name="Car" parent="Obstacles" instance=ExtResource("7_2y4ie")]
+[node name="Car" parent="Obstacles" instance=ExtResource("6_3u1ua")]
 position = Vector2(960.00006, 310.00003)
 rotation = 0.0009999275
 scale = Vector2(1, 1)
 tint = Color(0.7372549, 0.7372549, 0.89411765, 1)
 
-[node name="Car2" parent="Obstacles" instance=ExtResource("7_2y4ie")]
+[node name="Car2" parent="Obstacles" instance=ExtResource("6_3u1ua")]
 position = Vector2(958.99994, 200.99997)
 rotation = 0.09811221
 scale = Vector2(1, 1)
 tint = Color(0.15686275, 0.21176471, 0.9882353, 1)
 
-[node name="Car3" parent="Obstacles" instance=ExtResource("7_2y4ie")]
+[node name="Car3" parent="Obstacles" instance=ExtResource("6_3u1ua")]
 position = Vector2(459.00003, 90)
 rotation = -3.1241393
 scale = Vector2(1, 1)
 tint = Color(0.972549, 0.23529412, 0.03529412, 1)
 
-[node name="Car4" parent="Obstacles" instance=ExtResource("7_2y4ie")]
+[node name="Car4" parent="Obstacles" instance=ExtResource("6_3u1ua")]
 position = Vector2(459, 311.00003)
 rotation = 3.1415923
 scale = Vector2(1, 1)
 tint = Color(0.14509805, 0.20392157, 0.9490196, 1)
 
-[node name="Car5" parent="Obstacles" instance=ExtResource("7_2y4ie")]
+[node name="Car5" parent="Obstacles" instance=ExtResource("6_3u1ua")]
 position = Vector2(472.00003, 523)
 rotation = 3.1415918
 scale = Vector2(1, 1)
 tint = Color(0.6, 0.6156863, 0.80784315, 1)
 
-[node name="Car6" parent="Obstacles" instance=ExtResource("7_2y4ie")]
+[node name="Car6" parent="Obstacles" instance=ExtResource("6_3u1ua")]
 position = Vector2(473.99997, 197.99997)
 rotation = 3.0466387
 scale = Vector2(0.99999994, 0.99999994)
 tint = Color(0.6627451, 0.6862745, 0.41960785, 1)
 
-[node name="Car7" parent="Obstacles" instance=ExtResource("7_2y4ie")]
+[node name="Car7" parent="Obstacles" instance=ExtResource("6_3u1ua")]
 position = Vector2(468.00003, 643)
 rotation = 3.0706687
 scale = Vector2(0.99999994, 0.99999994)
 tint = Color(0.83137256, 0.7764706, 0.6666667, 1)
 
-[node name="Car8" parent="Obstacles" instance=ExtResource("7_2y4ie")]
+[node name="Car8" parent="Obstacles" instance=ExtResource("6_3u1ua")]
 position = Vector2(956.00006, 642.00006)
 rotation = 3.1268933
 scale = Vector2(0.99999994, 0.99999994)
 tint = Color(0.9882353, 0.9098039, 0.14509805, 1)
 
-[node name="Car9" parent="Obstacles" instance=ExtResource("7_2y4ie")]
+[node name="Car9" parent="Obstacles" instance=ExtResource("6_3u1ua")]
 position = Vector2(951.0001, 84)
 scale = Vector2(1, 1)
 tint = Color(0.62352943, 0.6117647, 0.7764706, 1)
 
-[node name="Car10" parent="Obstacles" instance=ExtResource("7_2y4ie")]
+[node name="Car10" parent="Obstacles" instance=ExtResource("6_3u1ua")]
 position = Vector2(960.0001, 422)
 rotation = 0.06704685
 scale = Vector2(1, 1)
 tint = Color(1, 0.16862746, 0.011764706, 1)
 
-[node name="Car11" parent="Obstacles" instance=ExtResource("7_2y4ie")]
+[node name="Car11" parent="Obstacles" instance=ExtResource("6_3u1ua")]
 position = Vector2(958.0001, 531)
 scale = Vector2(1, 1)
 tint = Color(0.72156864, 0.75686276, 0.47058824, 1)

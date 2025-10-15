@@ -5,8 +5,10 @@
 
 [node name="Exam" type="Node2D"]
 script = ExtResource("1_ywaid")
+current_level_number = 1
 
 [node name="UI" parent="." instance=ExtResource("2_ywaid")]
+test_number = 3
 test_description = ""
 
 [node name="LevelChangeTimer" type="Timer" parent="."]

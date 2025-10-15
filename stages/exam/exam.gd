@@ -1,11 +1,16 @@
 extends Node2D
 
-@export var current_level_number: int = 1
+@export var current_level_number: int
 
 var levels: Array = [
 	null,
 	"res://stages/levels/01.tscn",
-	"res://stages/levels/02.tscn"
+	"res://stages/levels/02.tscn",
+	"res://stages/levels/03.tscn",
+	"res://stages/levels/04.tscn",
+	"res://stages/levels/05.tscn",
+	"res://stages/levels/06.tscn",
+	"res://stages/levels/07.tscn"
 ]
 
 var ui: ExamUI = null
@@ -46,7 +51,8 @@ func _on_player_dead() -> void:
 
 func load_level(id: int) -> void:
 	if id < 1 || id > levels.size():
-		print("Invalid level selected for loading")
+		print("Invalid level selected for loading: %d" % current_level_number)
+		return
 	
 	if current_level != null:
 		remove_child(current_level)
