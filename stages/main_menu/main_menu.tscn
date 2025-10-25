@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdx8ft0t8uidn"]
+
+[ext_resource type="Texture2D" uid="uid://b2svgwqhpyrnp" path="res://assets/backgrounds/menu_background.webp" id="1_phs36"]
+[ext_resource type="Script" uid="uid://0812nyt7tj1t" path="res://stages/main_menu/main_menu.gd" id="1_wxx16"]
+[ext_resource type="PackedScene" uid="uid://bv5fd2vk3ng0e" path="res://entities/menu_item/menu_item.tscn" id="2_owbi8"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_wxx16")
+
+[node name="MenuBackground" type="Sprite2D" parent="."]
+position = Vector2(480, 360)
+texture = ExtResource("1_phs36")
+
+[node name="Instructions" parent="." instance=ExtResource("2_owbi8")]
+position = Vector2(774, 284)
+label_text = "Instructions"
+
+[node name="Practice" parent="." instance=ExtResource("2_owbi8")]
+position = Vector2(773, 375)
+label_text = "Practice"
+
+[node name="TakeTheExam" parent="." instance=ExtResource("2_owbi8")]
+position = Vector2(773, 456)
+
+[connection signal="menu_item_clicked" from="TakeTheExam" to="." method="_on_take_the_exam_clicked"]

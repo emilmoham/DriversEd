@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv5fd2vk3ng0e"]
+
+[ext_resource type="Script" uid="uid://bk0b4jl8gf5yv" path="res://entities/menu_item/menu_item.gd" id="1_ynw6r"]
+[ext_resource type="AudioStream" uid="uid://koytfipgkwxe" path="res://assets/menu_item_hover.mp3" id="2_ksjvk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5bjt"]
+resource_local_to_scene = true
+size = Vector2(326, 64)
+
+[node name="MenuItem" type="Area2D"]
+script = ExtResource("1_ynw6r")
+label_text = "Take the Exam"
+
+[node name="ButtonLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -32.0
+offset_right = 42.5
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 46
+text = "Take the Exam"
+horizontal_alignment = 3
+
+[node name="ClickBox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_m5bjt")
+
+[node name="HoverSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ksjvk")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

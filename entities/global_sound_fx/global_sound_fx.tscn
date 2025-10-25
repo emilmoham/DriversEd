@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://by0hnm6ex6dr"]
+
+[ext_resource type="Script" uid="uid://beit7m1nwqpnd" path="res://entities/global_sound_fx/global_sound_fx.gd" id="1_7elfn"]
+[ext_resource type="AudioStream" uid="uid://dk45yuy2qi2hg" path="res://assets/menu_item_selected.mp3" id="2_8au5a"]
+
+[node name="GlobalSoundFx" type="Node2D"]
+script = ExtResource("1_7elfn")
+
+[node name="MenuItemSelected" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_8au5a")

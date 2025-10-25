@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp2s3jj7bhmp8"]
+
+[ext_resource type="Script" uid="uid://bv0dnq251g6fs" path="res://stages/game_over/game_over.gd" id="1_ufx5r"]
+[ext_resource type="Texture2D" uid="uid://umud8c7jw2o0" path="res://assets/backgrounds/game_over_win_background.webp" id="2_7s0xm"]
+[ext_resource type="AudioStream" uid="uid://bw3eknxkf4837" path="res://assets/game_over_win.mp3" id="3_4whv1"]
+[ext_resource type="Texture2D" uid="uid://cigqjlpmd3qu3" path="res://assets/instructor.webp" id="4_j8nfv"]
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_ufx5r")
+
+[node name="GameOverBackground" type="Sprite2D" parent="."]
+position = Vector2(480, 360)
+texture = ExtResource("2_7s0xm")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 283.0
+offset_top = 129.0
+offset_right = 922.0
+offset_bottom = 436.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -57
+theme_override_constants/paragraph_spacing = 175
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/outline_size = 9
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 111
+text = "You Passed!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="GameOverAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_4whv1")
+
+[node name="Instructor" type="Sprite2D" parent="."]
+position = Vector2(197, 467)
+scale = Vector2(0.5302267, 0.5302267)
+texture = ExtResource("4_j8nfv")
+
+[connection signal="finished" from="GameOverAudio" to="." method="_on_game_over_audio_finished"]

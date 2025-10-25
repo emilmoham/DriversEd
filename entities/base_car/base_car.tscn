@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dr8tb8nc5cop5" path="res://entities/base_car/base_car.webp" id="2_esqs1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5ret"]
-size = Vector2(135.38463, 69.23078)
+size = Vector2(132.30771, 66.153854)
 
 [node name="Car" type="Area2D"]
 scale = Vector2(0.65, 0.65)
@@ -59,7 +59,6 @@ scale = Vector2(0.65, 0.65)
 texture = ExtResource("2_esqs1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(2.9343828e-06, -0.76923084)
 shape = SubResource("RectangleShape2D_j5ret")
 

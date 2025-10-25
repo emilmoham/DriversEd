@@ -28,6 +28,8 @@ func _ready() -> void:
 
 func _on_add_demerit() -> void:
 	ui.add_demerit()
+	if ui.demerits == 10000:
+		get_tree().change_scene_to_file("res://stages/game_over/game_over_loss_demerits.tscn")
 
 func _on_demerit_zone_entered() -> void:
 	ui.set_instructor_state(InstructorGlobals.InstructorAnimation.ANGRY)
@@ -42,12 +44,15 @@ func _on_parked() -> void:
 		current_level_number += 1
 		load_level(current_level_number)
 	else:
-		print("you win :)")
+		#level_change_timer.start()
+		#await level_change_timer.timeout
+		get_tree().change_scene_to_file("res://stages/game_over/game_over_win.tscn")
 
 func _on_player_dead() -> void:
 	ui.set_instructor_state(InstructorGlobals.InstructorAnimation.EXPLODED)
-	# wait a few seconds
-	print("show game over")
+	level_change_timer.start()
+	await level_change_timer.timeout
+	get_tree().change_scene_to_file("res://stages/game_over/game_over_loss_crash.tscn")
 
 func load_level(id: int) -> void:
 	if id < 1 || id > levels.size():
