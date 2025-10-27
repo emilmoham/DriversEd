@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bv0dnq251g6fs" path="res://stages/game_over/game_over.gd" id="1_uhe56"]
 [ext_resource type="Texture2D" uid="uid://cw42es1fuj325" path="res://assets/backgrounds/game_over_background.svg" id="2_p4500"]
-[ext_resource type="AudioStream" uid="uid://7opq2giyov7g" path="res://assets/game_over_loss.mp3" id="3_ilxc6"]
-[ext_resource type="Texture2D" uid="uid://dgyk6fgiglhr3" path="res://assets/instructor_demerit_fail.webp" id="4_p4500"]
+[ext_resource type="AudioStream" uid="uid://7opq2giyov7g" path="res://assets/sounds/game_over_loss.mp3" id="3_ilxc6"]
+[ext_resource type="Texture2D" uid="uid://dgyk6fgiglhr3" path="res://assets/instructor/instructor_demerit_fail.webp" id="4_p4500"]
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_uhe56")

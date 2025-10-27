@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfsb88tlms0io"
-path="res://.godot/imported/instructor_full_body_exploded.svg-64e4a2472ca6c7871351ffdaf12910e4.ctex"
+uid="uid://cigqjlpmd3qu3"
+path="res://.godot/imported/instructor.webp-40595d3d08061b24bbab0ff5d6c49629.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/instructor/instructor_full_body_exploded.svg"
-dest_files=["res://.godot/imported/instructor_full_body_exploded.svg-64e4a2472ca6c7871351ffdaf12910e4.ctex"]
+source_file="res://assets/instructor/instructor.webp"
+dest_files=["res://.godot/imported/instructor.webp-40595d3d08061b24bbab0ff5d6c49629.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

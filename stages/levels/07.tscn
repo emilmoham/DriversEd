@@ -48,7 +48,7 @@ scale = Vector2(1.1, 1.1)
 position = Vector2(0, 20)
 
 [node name="DisallowedArea" type="CollisionPolygon2D" parent="DemeritZone"]
-polygon = PackedVector2Array(298, -99, 589, -99, 589, 342, 368, 342, 368, 457, 576, 457, 597, 477, 596, 704, 841, 703, 842, 343, 591, 342, 589, -99, 1043, -99, 1044, 807, 298, 807)
+polygon = PackedVector2Array(298, -99, 589, -99, 589, 342, 368, 342, 368, 457, 576, 457, 597, 477, 597, 704, 841, 703, 842, 343, 591, 342, 589, -99, 1043, -99, 1044, 807, 298, 807)
 
 [node name="WorldBounds" type="Area2D" parent="."]
 

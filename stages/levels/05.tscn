@@ -84,12 +84,11 @@ rotation = -1.5707964
 scale = Vector2(1.1, 1.1)
 
 [node name="DemeritZone" parent="." instance=ExtResource("5_oly7c")]
-visible = false
 position = Vector2(0, 1)
 
 [node name="DisallowedArea" type="CollisionPolygon2D" parent="DemeritZone"]
 position = Vector2(0, -1)
-polygon = PackedVector2Array(44, -151, 1141, -153, 1141, 891, 743, 891, 745, 294, 662, 293, 662, 144, 523, 144, 523, 498, 634, 500, 743, 499, 741, 891, 44, 891)
+polygon = PackedVector2Array(44, -151, 1141, -153, 1141, 891, 743, 891, 745, 294, 746, 0, 455, 0, 454, 502, 744, 502, 741, 891, 44, 891)
 
 [node name="WorldBounds" type="Area2D" parent="."]
 

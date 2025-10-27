@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://rhfhu2a00pqk"]
+[gd_scene load_steps=5 format=3 uid="uid://rhfhu2a00pqk"]
 
 [ext_resource type="Script" uid="uid://bv0dnq251g6fs" path="res://stages/game_over/game_over.gd" id="1_0tpyx"]
 [ext_resource type="Texture2D" uid="uid://cw42es1fuj325" path="res://assets/backgrounds/game_over_background.svg" id="2_ta4rc"]
-[ext_resource type="AudioStream" uid="uid://7opq2giyov7g" path="res://assets/game_over_loss.mp3" id="3_t4ioo"]
+[ext_resource type="AudioStream" uid="uid://7opq2giyov7g" path="res://assets/sounds/game_over_loss.mp3" id="3_t4ioo"]
+[ext_resource type="Texture2D" uid="uid://wrrx6ancq06u" path="res://assets/instructor/instructor_full_body_exploded.webp" id="4_0vm7v"]
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_0tpyx")
@@ -12,10 +13,10 @@ position = Vector2(480, 360)
 texture = ExtResource("2_ta4rc")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 427.0
-offset_top = 261.0
-offset_right = 768.0
-offset_bottom = 568.0
+offset_left = 449.0
+offset_top = 226.0
+offset_right = 790.0
+offset_bottom = 533.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = -57
@@ -30,5 +31,10 @@ autowrap_mode = 2
 
 [node name="GameOverAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_t4ioo")
+
+[node name="InstructorFullBodyExploded" type="Sprite2D" parent="."]
+position = Vector2(203, 349.00003)
+scale = Vector2(0.6410579, 0.6410579)
+texture = ExtResource("4_0vm7v")
 
 [connection signal="finished" from="GameOverAudio" to="." method="_on_game_over_audio_finished"]
