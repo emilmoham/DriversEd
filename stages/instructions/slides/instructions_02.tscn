@@ -1,0 +1,128 @@
+[gd_scene load_steps=5 format=3 uid="uid://dt8wrupsc5cmo"]
+
+[ext_resource type="Texture2D" uid="uid://btsjy62t22tko" path="res://assets/backgrounds/game_over_loss_background.webp" id="1_tpy0b"]
+[ext_resource type="Texture2D" uid="uid://bgvquiyx56ea8" path="res://entities/player/player_car.webp" id="2_5pnal"]
+[ext_resource type="Texture2D" uid="uid://c8iwvnphpo4na" path="res://assets/backgrounds/key/key_base.webp" id="3_igvau"]
+[ext_resource type="Texture2D" uid="uid://b1atndm8k1qd6" path="res://assets/backgrounds/key/arrow.webp" id="4_kxmy2"]
+
+[node name="Instructions02" type="Node2D"]
+
+[node name="GameOverLossBackground" type="Sprite2D" parent="."]
+position = Vector2(480, 360)
+texture = ExtResource("1_tpy0b")
+
+[node name="InstructionsText" type="Label" parent="."]
+offset_left = 26.0
+offset_top = 9.0
+offset_right = 934.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_font_sizes/font_size = 22
+text = "Since your computer doesn't have a steering wheel installed, we'll have to rely on the keyboard to drive. The up arrow accelerates your vehicle forward or stops it from moving in reverse. The down arrow stops the car from going forward and accelerates it in reverse. The left and right keys turn the weels left and right."
+autowrap_mode = 2
+
+[node name="PlayerCar" type="Sprite2D" parent="."]
+position = Vector2(613.00006, 364.00003)
+rotation = -1.5707964
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_5pnal")
+
+[node name="KeyBase" type="Sprite2D" parent="."]
+position = Vector2(612, 258)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_igvau")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+position = Vector2(612, 256)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_kxmy2")
+
+[node name="KeyBase2" type="Sprite2D" parent="."]
+position = Vector2(544, 315)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_igvau")
+
+[node name="Arrow2" type="Sprite2D" parent="."]
+position = Vector2(543, 316)
+rotation = -1.5707964
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_kxmy2")
+
+[node name="KeyBase3" type="Sprite2D" parent="."]
+position = Vector2(681, 314)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_igvau")
+
+[node name="Arrow3" type="Sprite2D" parent="."]
+position = Vector2(682, 316)
+rotation = 1.5707964
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_kxmy2")
+
+[node name="KeyBase4" type="Sprite2D" parent="."]
+position = Vector2(612, 471)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_igvau")
+
+[node name="Arrow4" type="Sprite2D" parent="."]
+position = Vector2(612, 469)
+rotation = 3.1415927
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_kxmy2")
+
+[node name="KeyBase5" type="Sprite2D" parent="."]
+position = Vector2(612, 203)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_igvau")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 601.0
+offset_top = 186.0
+offset_right = 624.0
+offset_bottom = 220.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "W"
+
+[node name="KeyBase6" type="Sprite2D" parent="."]
+position = Vector2(490, 315)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_igvau")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 482.0
+offset_top = 298.0
+offset_right = 498.0
+offset_bottom = 332.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "A"
+
+[node name="KeyBase7" type="Sprite2D" parent="."]
+position = Vector2(735, 314)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_igvau")
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 726.0
+offset_top = 297.0
+offset_right = 744.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "D"
+
+[node name="KeyBase8" type="Sprite2D" parent="."]
+position = Vector2(612, 525)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_igvau")
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 605.0
+offset_top = 508.0
+offset_right = 618.0
+offset_bottom = 542.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "S"

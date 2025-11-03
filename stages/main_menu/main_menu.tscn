@@ -22,4 +22,5 @@ label_text = "Practice"
 [node name="TakeTheExam" parent="." instance=ExtResource("2_owbi8")]
 position = Vector2(773, 456)
 
+[connection signal="menu_item_clicked" from="Instructions" to="." method="_on_instructions_clicked"]
 [connection signal="menu_item_clicked" from="TakeTheExam" to="." method="_on_take_the_exam_clicked"]

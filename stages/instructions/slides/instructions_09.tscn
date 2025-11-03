@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://734fsejhymon"]
+
+[ext_resource type="Texture2D" uid="uid://btsjy62t22tko" path="res://assets/backgrounds/game_over_loss_background.webp" id="1_vmbjp"]
+[ext_resource type="Texture2D" uid="uid://6ov1pvmv8lxy" path="res://assets/backgrounds/instruction_images/instructions_bg_09.webp" id="2_vmbjp"]
+
+[node name="Instructions09" type="Node2D"]
+
+[node name="GameOverLossBackground" type="Sprite2D" parent="."]
+position = Vector2(480, 360)
+texture = ExtResource("1_vmbjp")
+
+[node name="InstructionsText" type="Label" parent="."]
+offset_left = 26.0
+offset_top = 9.0
+offset_right = 930.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_font_sizes/font_size = 22
+text = "Test #9: Pulling into a Parking Space
+This is your last test. Pull into an empty spotand stop before hitting the curb. Points will be deducted. for veering from this course. You will fail if you hit another car."
+autowrap_mode = 2
+
+[node name="InstructionsBg09" type="Sprite2D" parent="."]
+position = Vector2(608, 376)
+texture = ExtResource("2_vmbjp")

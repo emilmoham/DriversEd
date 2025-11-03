@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0n4iy02g6mvx"]
+
+[ext_resource type="Texture2D" uid="uid://btsjy62t22tko" path="res://assets/backgrounds/game_over_loss_background.webp" id="1_pglt1"]
+
+[node name="Instructions01" type="Node2D"]
+
+[node name="GameOverLossBackground" type="Sprite2D" parent="."]
+position = Vector2(480, 360)
+texture = ExtResource("1_pglt1")
+
+[node name="InstructionsText" type="Label" parent="."]
+offset_left = 26.0
+offset_top = 9.0
+offset_right = 927.0
+offset_bottom = 124.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_font_sizes/font_size = 22
+text = "Hello, my name is Ed, your driving Instructor. Listen to me and do exacly as I say, and you will pass. If you act like a nincompoop, you will fail."
+autowrap_mode = 2

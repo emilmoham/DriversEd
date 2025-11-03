@@ -9,31 +9,42 @@ WebAssembly had matured to the point that they could be considered viable
 alternatives Flash Player, and that 3 years time would be sufficient to allow 
 developers to migrate Flash content to newer standards.
 
-Many Flash games from the 2000's and 2010's were unable to be archived
-or migrated and are unfortunately unplayable today. This project is an attempt 
-to recreate the game from scratch in [Godot](https://godotengine.org/) using 
-the available video and screenshot references. 
+I started this project on thinking that the original Driver's Ed game was no 
+longer playable. It was only after recreating the driving physics, 
+half of the assets, and most of exam logic, that I found out that the orignal 
+version is still playable on many websites if you can download an old shockwave
+plugin installer and run it inside a virtual machine. On that very same day I 
+realized that the original game is playable on modern machines via the
+[Flashpoint Archive](https://flashpointarchive.org/).
+
+Still I don't consider any of the time that I've worked on this project wasted,
+as it served as a great beginner project for learning how to use the Godot
+Engine. I now consider this project somewhat of an HD remake, in the sense that
+it's made for a higher resolution and is likely inferior to the original
+otherwise.
 
 ## References
 
 * [Driver's Ed on MoFunZone](https://www.youtube.com/watch?v=huayj5IllwI)
 by 'Hopkins The Movie' on YouTube
+* [Driver's Ed](https://flashpointproject.github.io/flashpoint-database/search/#2e8d232e-0f4e-4f48-9f58-eec6ce0c43e5)
+by Thinkronize, Inc. via Flashpoint Database
 
 ## Progress
 
-* ☐ Main Menu
-    * ☐ Instructions
-        * ☐ Instructor Introduction
-        * ☐ Controls
-        * ☐ Explanation of Tests
-            * ☐ Test 1: Backing Out of a Parking Space
-            * ☐ Test 2: Stopping at an Intersection
-            * ☐ Test 3: Right Turn
-            * ☐ Test 4: Left Turn
-            * ☐ Test 5: Parallel Parking
-            * ☐ Test 6: Merging with Traffic
-            * ☐ Test 7: Parking in a Parking Space
-        * ☐ Explanation of Pass/Fail Condition
+* 🟨 Main Menu
+    * ✅ Instructions
+        * ✅ Instructor Introduction
+        * ✅ Controls
+        * ✅ Explanation of Tests
+            * ✅ Test 1: Backing Out of a Parking Space
+            * ✅ Test 2: Stopping at an Intersection
+            * ✅ Test 3: Right Turn
+            * ✅ Test 4: Left Turn
+            * ✅ Test 5: Parallel Parking
+            * ✅ Test 6: Merging with Traffic
+            * ✅ Test 7: Parking in a Parking Space
+        * ✅ Explanation of Pass/Fail Condition
     * ☐ Practice
         * ☐ Backing Out of a Parking Space
         * ☐ Stopping at an Intersection
@@ -42,7 +53,7 @@ by 'Hopkins The Movie' on YouTube
         * ☐ Parallel Parking
         * ☐ Merging with Traffic
         * ☐ Parking in a Parking Space
-    * ☐ Take the Exam
+    * ✅ Take the Exam
         * 🟨 Backing Out of a Parking Space
         * 🟨 Stopping at an Intersection
         * 🟨 Right Turn

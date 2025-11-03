@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4m5434kabr87"]
+
+[ext_resource type="Script" uid="uid://begg2wjpjgh3u" path="res://stages/instructions/instructions.gd" id="1_5r87v"]
+[ext_resource type="Texture2D" uid="uid://cigqjlpmd3qu3" path="res://assets/instructor/instructor.webp" id="3_2bea3"]
+[ext_resource type="PackedScene" uid="uid://bv5fd2vk3ng0e" path="res://entities/menu_item/menu_item.tscn" id="4_en5rl"]
+
+[node name="Instructions" type="Node2D"]
+script = ExtResource("1_5r87v")
+
+[node name="Instructor" type="Sprite2D" parent="."]
+position = Vector2(191.74998, 462.3258)
+scale = Vector2(0.5069269, 0.5069269)
+texture = ExtResource("3_2bea3")
+
+[node name="NextButton" parent="." instance=ExtResource("4_en5rl")]
+position = Vector2(896, 670)
+scale = Vector2(0.415, 0.415)
+label_text = "Next ->"
+
+[node name="MenuButton" parent="." instance=ExtResource("4_en5rl")]
+position = Vector2(802, 670)
+scale = Vector2(0.415, 0.415)
+label_text = "Menu"
+
+[connection signal="menu_item_clicked" from="NextButton" to="." method="_on_next_button_clicked"]
+[connection signal="menu_item_clicked" from="MenuButton" to="." method="_on_menu_button_clicked"]
